@@ -69,7 +69,7 @@ public class registro extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("nombre");
+        jLabel2.setText("Nombre");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,11 +77,11 @@ public class registro extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("apellido");
+        jLabel3.setText("Apellido");
 
-        jLabel4.setText("email");
+        jLabel4.setText("Email");
 
-        jLabel5.setText("contraseña");
+        jLabel5.setText("Contraseña");
 
         jButton.setText("terminar registro");
         jButton.addMouseListener(new java.awt.event.MouseAdapter() {
