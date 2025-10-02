@@ -38,36 +38,37 @@ public class NewJFrame extends javax.swing.JFrame {
         continuar = new javax.swing.JToggleButton();
         registro = new javax.swing.JToggleButton();
         tx_error = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        ImajenFondo_Inicio = new javax.swing.JLabel();
+        ImajenCostado_inicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 255));
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel1.setText("Bienvenido");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 17, -1, 28));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Iniciar seccion");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, 28));
 
         tx_pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tx_passActionPerformed(evt);
             }
         });
-        getContentPane().add(tx_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 209, 151, -1));
+        getContentPane().add(tx_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 151, -1));
 
         jLabel3.setText("contraseña");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 187, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
 
         tx_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tx_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(tx_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 147, 151, -1));
+        getContentPane().add(tx_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 151, -1));
 
         jLabel2.setText("usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 125, 51, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 51, -1));
 
         continuar.setText("continuar");
         continuar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +76,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 continuarActionPerformed(evt);
             }
         });
-        getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 258, 151, -1));
+        getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 151, -1));
 
         registro.setText("regitrese");
         registro.addActionListener(new java.awt.event.ActionListener() {
@@ -83,12 +84,14 @@ public class NewJFrame extends javax.swing.JFrame {
                 registroActionPerformed(evt);
             }
         });
-        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 293, 111, -1));
-        getContentPane().add(tx_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 240, 151, -1));
+        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 111, -1));
+        getContentPane().add(tx_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 170, 20));
 
-        jPanel2.setBackground(new java.awt.Color(153, 0, 153));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 480));
+        ImajenFondo_Inicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\YARITZA\\Documents\\NetBeansProjects\\proyecto_de_aula_2\\src\\main\\resources\\img\\main-background.jpg")); // NOI18N
+        getContentPane().add(ImajenFondo_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 510, 480));
+
+        ImajenCostado_inicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\YARITZA\\Documents\\NetBeansProjects\\proyecto_de_aula_2\\src\\main\\resources\\img\\icono.png")); // NOI18N
+        getContentPane().add(ImajenCostado_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-230, 0, 480, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,11 +149,12 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImajenCostado_inicio;
+    private javax.swing.JLabel ImajenFondo_Inicio;
     private javax.swing.JToggleButton continuar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JToggleButton registro;
     private javax.swing.JLabel tx_error;
     private javax.swing.JTextField tx_pass;

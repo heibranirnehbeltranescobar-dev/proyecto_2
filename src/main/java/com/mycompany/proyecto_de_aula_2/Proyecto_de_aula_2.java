@@ -1,5 +1,5 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+
  */
 
 package com.mycompany.proyecto_de_aula_2;
