@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfases;
+package interfase;
 
 import javax.swing.JOptionPane;
 
@@ -10,17 +10,17 @@ import javax.swing.JOptionPane;
  *
  * @author YARITZA
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Inicio_seccion extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio_seccion.class.getName());
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public Inicio_seccion() {
         initComponents();
     }
-
+    funciones a = new funciones();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,19 +30,23 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         tx_pass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tx_usuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         continuar = new javax.swing.JToggleButton();
-        registro = new javax.swing.JToggleButton();
         tx_error = new javax.swing.JLabel();
         ImajenFondo_Inicio = new javax.swing.JLabel();
         ImajenCostado_inicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio-seccion-icono-usuario.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 70, -1));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 255));
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -70,6 +74,14 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel2.setText("usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 51, -1));
 
+        jButton1.setText("Registrarse");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
+
         continuar.setText("continuar");
         continuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,14 +89,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 151, -1));
-
-        registro.setText("regitrese");
-        registro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 111, -1));
         getContentPane().add(tx_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 170, 20));
 
         ImajenFondo_Inicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\YARITZA\\Documents\\NetBeansProjects\\proyecto_de_aula_2\\src\\main\\resources\\img\\main-background.jpg")); // NOI18N
@@ -110,18 +114,59 @@ public class NewJFrame extends javax.swing.JFrame {
         if(email.equalsIgnoreCase("heibran@gmail.com")&& contrasena.equals("123456") ){
             new bienvenido().setVisible(true);
         }
+        boolean coinicio = true;
         if(email.isEmpty() || contrasena.isEmpty()){
-            JOptionPane.showMessageDialog(null, "coloque algo en ususario y en contraseña");
+            coinicio = false;
+            JOptionPane.showMessageDialog(null, "Digite algo en ususario y en contraseña");
+            
         }
-        else{
+        if(!email.equalsIgnoreCase("heibran@gmail.com")&& !contrasena.equals("123456")){
         tx_error.setText("usuario o contraseña incorrecto");
-                }
+          }
+        
+        if(coinicio==true){
+            for(int p = 0 ; p < a.cantvendedor; p++){
+                
+             if(a.vendedores[p][0].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)) {
+                   
+                 
+                  new Vista_vendedor().setVisible(true);
+                  a.IDusuarioactual = p;
+                     
+                 }
+                 
+             }
+             for(int p = 0 ; p < a.cantvendedor; p++){
+                
+             if(a.vendedores[p][0].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)) {
+             
+                 if(a.vendedores[p][4].equals("1")){
+                 
+                     
+                 }
+                   
+                 if(a.vendedores[p][4].equals("2")){
+                     
+                  new Vista_vendedor().setVisible(true);
+                  a.IDusuarioactual = p;
+                     
+                 }
+                 
+             } 
+            }
+        
+        }
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_continuarActionPerformed
 
-    private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
-        
-        new registro().setVisible(true);
-    }//GEN-LAST:event_registroActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,17 +190,18 @@ public class NewJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new NewJFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Inicio_seccion().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImajenCostado_inicio;
     private javax.swing.JLabel ImajenFondo_Inicio;
     private javax.swing.JToggleButton continuar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JToggleButton registro;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel tx_error;
     private javax.swing.JTextField tx_pass;
     private javax.swing.JTextField tx_usuario;
