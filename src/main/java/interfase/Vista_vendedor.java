@@ -31,7 +31,7 @@ public class Vista_vendedor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        icono_usuario = new javax.swing.JLabel();
         pa_ventas = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         pa_nueva_venta = new javax.swing.JPanel();
@@ -40,6 +40,15 @@ public class Vista_vendedor extends javax.swing.JFrame {
         imagen_de_vista_vendedor2 = new javax.swing.JLabel();
         pestanas_vista_vendedor = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        j_nombre_usuario = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        j_cedula_vendedor = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        j_email_vendedor = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        j_contrasena_vendedor = new javax.swing.JLabel();
+        b_modificar_vendedor = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,13 +69,13 @@ public class Vista_vendedor extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio_usuario.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        icono_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inicio_usuario.png"))); // NOI18N
+        icono_usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                icono_usuarioMouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 60, 70));
+        jPanel1.add(icono_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 60, 70));
 
         pa_ventas.setBackground(new java.awt.Color(255, 135, 56));
         pa_ventas.setForeground(new java.awt.Color(255, 102, 0));
@@ -137,6 +146,31 @@ public class Vista_vendedor extends javax.swing.JFrame {
         jPanel1.add(imagen_de_vista_vendedor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 440));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("Nombre :");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 50, -1));
+        jPanel4.add(j_nombre_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 190, 20));
+
+        jLabel4.setText("Cedula :");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jPanel4.add(j_cedula_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 170, 20));
+
+        jLabel9.setText("Email :");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 50, -1));
+        jPanel4.add(j_email_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 200, 20));
+
+        jLabel10.setText("contraseña :");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        jPanel4.add(j_contrasena_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 130, 20));
+
+        b_modificar_vendedor.setText("Modificar algun parametro");
+        b_modificar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_modificar_vendedorActionPerformed(evt);
+            }
+        });
+        jPanel4.add(b_modificar_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 180, 30));
+
         pestanas_vista_vendedor.addTab("tab1", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -204,9 +238,13 @@ public class Vista_vendedor extends javax.swing.JFrame {
         pestanas_vista_vendedor.setSelectedIndex(1);
     }//GEN-LAST:event_pa_ventasMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-    pestanas_vista_vendedor.setSelectedIndex(0);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void icono_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_usuarioMouseClicked
+    j_nombre_usuario.setText(""+a.vendedores[a.IDusuarioactual][0]);
+    j_cedula_vendedor.setText(""+a.vendedores[a.IDusuarioactual][1]);
+    j_email_vendedor.setText(""+a.vendedores[a.IDusuarioactual][2]);
+    j_contrasena_vendedor.setText(""+a.vendedores[a.IDusuarioactual][3]);
+        pestanas_vista_vendedor.setSelectedIndex(0);
+    }//GEN-LAST:event_icono_usuarioMouseClicked
 
     private void b_new_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_new_objetoActionPerformed
     
@@ -237,6 +275,10 @@ public class Vista_vendedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tx_precio_productoKeyTyped
 
+    private void b_modificar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_modificar_vendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_modificar_vendedorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,23 +305,32 @@ public class Vista_vendedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b_modificar_vendedor;
     private javax.swing.JButton b_new_objeto;
     private javax.swing.JLabel error_precio;
     private javax.swing.JLabel fondo_new__venta;
+    private javax.swing.JLabel icono_usuario;
     private javax.swing.JLabel imagen_de_vista_vendedor1;
     private javax.swing.JLabel imagen_de_vista_vendedor2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel j_cedula_vendedor;
+    private javax.swing.JLabel j_contrasena_vendedor;
+    private javax.swing.JLabel j_email_vendedor;
+    private javax.swing.JLabel j_nombre_usuario;
     private javax.swing.JPanel pa_nueva_venta;
     private javax.swing.JPanel pa_ventas;
     private javax.swing.JTabbedPane pestanas_vista_vendedor;

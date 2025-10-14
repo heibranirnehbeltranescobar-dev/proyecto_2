@@ -131,9 +131,8 @@ public class Inicio_seccion extends javax.swing.JFrame {
     boolean encontrado = false;
     System.out.print("hola");
     for(int p = 0; p < a.cantvendedor+1; p++){
-        System.out.print("hola");
-        if(a.vendedores[p][2] != null && a.vendedores[p][3] != null){
-            
+        System.out.print("hola");      
+        
             if(a.vendedores[p][2].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)){
                 
                 a.IDusuarioactual = p;
@@ -142,7 +141,7 @@ public class Inicio_seccion extends javax.swing.JFrame {
                 this.dispose();
                 encontrado = true;
                 break;
-            }
+            
         }
     }
 
