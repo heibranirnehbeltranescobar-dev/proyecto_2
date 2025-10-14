@@ -227,6 +227,11 @@ public class registro extends javax.swing.JFrame {
     }//GEN-LAST:event_tx_registronombreActionPerformed
 
     private void b_terminarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_terminarRActionPerformed
+      
+      L_registroerror.setText("");
+      error_email.setText("");
+      error_tipo.setText("");
+      error_cedula.setText("");
       String Rnombre = tx_registronombre.getText();
       String Rcedula = tx_registroapellido.getText();
       String Remail = tx_registroemail.getText();
@@ -249,10 +254,10 @@ public class registro extends javax.swing.JFrame {
       }
            
      boolean Ctipo = true;
-      if(!Rtipo.equalsIgnoreCase("usuario") || !Rtipo.equals("1") || !Rtipo.equalsIgnoreCase("vendedor") || !Rtipo.equals("2")){
+      if(!(Rtipo.equalsIgnoreCase("usuario") || Rtipo.equals("1") || Rtipo.equalsIgnoreCase("vendedor") || Rtipo.equals("2"))){
      
           error_tipo.setText("dijite una de las occiones");
-          Ctipo = true;
+          Ctipo = false;
       }
 
       if(a.validarCedula(Rcedula)==false){
@@ -264,16 +269,19 @@ public class registro extends javax.swing.JFrame {
             
                 
                  a.GuardarUsuario(Rnombre, Rcedula, Remail, Rcontraseña);
+                  new Inicio_seccion().setVisible(true);
+                  this.dispose();
             }
             if(Rtipo.equalsIgnoreCase("vendedor") || Rtipo.equals("2")){
                 
                 a.gvendedor(Rnombre, Rcedula, Remail, Rcontraseña);
-                
+                 new Inicio_seccion().setVisible(true);
+                 this.dispose();
+               
             }
              
      
            
-             new Inicio_seccion().setVisible(true);
      
       }
      

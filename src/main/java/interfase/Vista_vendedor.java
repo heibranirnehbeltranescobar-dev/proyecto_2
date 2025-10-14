@@ -18,7 +18,7 @@ public class Vista_vendedor extends javax.swing.JFrame {
     public Vista_vendedor() {
         initComponents();
     }
-
+    funciones a = new funciones();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,8 +47,9 @@ public class Vista_vendedor extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         tx_descripcion_producto = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        tx_presio_producto = new javax.swing.JTextField();
+        tx_precio_producto = new javax.swing.JTextField();
         b_new_objeto = new javax.swing.JButton();
+        error_precio = new javax.swing.JLabel();
         fondo_new__venta = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
@@ -106,16 +107,16 @@ public class Vista_vendedor extends javax.swing.JFrame {
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Nuevo objeto para vender");
+        jLabel1.setText("Nuevo producto");
 
         javax.swing.GroupLayout pa_nueva_ventaLayout = new javax.swing.GroupLayout(pa_nueva_venta);
         pa_nueva_venta.setLayout(pa_nueva_ventaLayout);
         pa_nueva_ventaLayout.setHorizontalGroup(
             pa_nueva_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pa_nueva_ventaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         pa_nueva_ventaLayout.setVerticalGroup(
             pa_nueva_ventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,10 +154,24 @@ public class Vista_vendedor extends javax.swing.JFrame {
 
         jLabel7.setText("Dijite el precio en dolares");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
-        jPanel2.add(tx_presio_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 160, -1));
+
+        tx_precio_producto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tx_precio_productoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(tx_precio_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 200, -1));
 
         b_new_objeto.setText("Subir producto");
+        b_new_objeto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_new_objetoActionPerformed(evt);
+            }
+        });
         jPanel2.add(b_new_objeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+
+        error_precio.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(error_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 120, 20));
 
         fondo_new__venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_nuevo_objeto.jpg"))); // NOI18N
         jPanel2.add(fondo_new__venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 0, 800, 360));
@@ -193,6 +208,35 @@ public class Vista_vendedor extends javax.swing.JFrame {
     pestanas_vista_vendedor.setSelectedIndex(0);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void b_new_objetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_new_objetoActionPerformed
+    
+        String nombre = tx_nombre_producto.getText();
+        String descripcion = tx_descripcion_producto.getText();
+        String precioo = tx_precio_producto.getText();
+        
+        if(!nombre.isEmpty() && !descripcion.isEmpty() && !precioo.isEmpty() ){
+            int precio = Integer.parseInt(precioo);
+            a.Guardarproducto(nombre, descripcion, precio);
+            for(int c = 0;c < 7 ; c ++ )        
+            System.out.print(a.productos[c].nombre);
+                    
+                    
+            
+    }
+        else{}
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_new_objetoActionPerformed
+
+    private void tx_precio_productoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tx_precio_productoKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+        evt.consume();
+        error_precio.setText("dijite solo numeros");
+        }
+    }//GEN-LAST:event_tx_precio_productoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +264,7 @@ public class Vista_vendedor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_new_objeto;
+    private javax.swing.JLabel error_precio;
     private javax.swing.JLabel fondo_new__venta;
     private javax.swing.JLabel imagen_de_vista_vendedor1;
     private javax.swing.JLabel imagen_de_vista_vendedor2;
@@ -240,6 +285,6 @@ public class Vista_vendedor extends javax.swing.JFrame {
     private javax.swing.JTabbedPane pestanas_vista_vendedor;
     private javax.swing.JTextField tx_descripcion_producto;
     private javax.swing.JTextField tx_nombre_producto;
-    private javax.swing.JTextField tx_presio_producto;
+    private javax.swing.JTextField tx_precio_producto;
     // End of variables declaration//GEN-END:variables
 }

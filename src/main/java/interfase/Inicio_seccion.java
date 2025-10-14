@@ -35,9 +35,9 @@ public class Inicio_seccion extends javax.swing.JFrame {
         tx_pass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         tx_usuario = new javax.swing.JTextField();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        continuar = new javax.swing.JToggleButton();
         tx_error = new javax.swing.JLabel();
         ImajenFondo_Inicio = new javax.swing.JLabel();
         ImajenCostado_inicio = new javax.swing.JLabel();
@@ -71,6 +71,14 @@ public class Inicio_seccion extends javax.swing.JFrame {
         });
         getContentPane().add(tx_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 151, -1));
 
+        jToggleButton1.setText("continuar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 120, -1));
+
         jLabel2.setText("usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 51, -1));
 
@@ -81,14 +89,6 @@ public class Inicio_seccion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
-
-        continuar.setText("continuar");
-        continuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continuarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 151, -1));
         getContentPane().add(tx_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 170, 20));
 
         ImajenFondo_Inicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\YARITZA\\Documents\\NetBeansProjects\\proyecto_de_aula_2\\src\\main\\resources\\img\\main-background.jpg")); // NOI18N
@@ -108,65 +108,50 @@ public class Inicio_seccion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tx_passActionPerformed
 
-    private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
-         String email = tx_usuario.getText();
-        String contrasena = tx_pass.getText();
-        if(email.equalsIgnoreCase("heibran@gmail.com")&& contrasena.equals("123456") ){
-            new bienvenido().setVisible(true);
-        }
-        boolean coinicio = true;
-        if(email.isEmpty() || contrasena.isEmpty()){
-            coinicio = false;
-            JOptionPane.showMessageDialog(null, "Digite algo en ususario y en contraseña");
-            
-        }
-        if(!email.equalsIgnoreCase("heibran@gmail.com")&& !contrasena.equals("123456")){
-        tx_error.setText("usuario o contraseña incorrecto");
-          }
-        
-        if(coinicio==true){
-            for(int p = 0 ; p < a.cantvendedor; p++){
-                
-             if(a.vendedores[p][0].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)) {
-                   
-                 
-                  new Vista_vendedor().setVisible(true);
-                  a.IDusuarioactual = p;
-                     
-                 }
-                 
-             }
-             for(int p = 0 ; p < a.cantvendedor; p++){
-                
-             if(a.vendedores[p][0].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)) {
-             
-                 if(a.vendedores[p][4].equals("1")){
-                 
-                     
-                 }
-                   
-                 if(a.vendedores[p][4].equals("2")){
-                     
-                  new Vista_vendedor().setVisible(true);
-                  a.IDusuarioactual = p;
-                     
-                 }
-                 
-             } 
-            }
-        
-        }
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_continuarActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+      new registro ().setVisible(true);
+                    
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+ String email = tx_usuario.getText();
+            String contrasena = tx_pass.getText();
+
+    if(email.isEmpty() || contrasena.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Digite algo en usuario y en contraseña");
+        return;
+    }
+
+    if(email.equalsIgnoreCase("heibran@gmail.com") && contrasena.equals("123456")){
+        new bienvenido().setVisible(true);
+        this.dispose();
+        return;
+    }
+    
+    boolean encontrado = false;
+    System.out.print("hola");
+    for(int p = 0; p < a.cantvendedor+1; p++){
+        System.out.print("hola");
+        if(a.vendedores[p][2] != null && a.vendedores[p][3] != null){
+            
+            if(a.vendedores[p][2].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)){
+                
+                a.IDusuarioactual = p;
+                a.cedulausuarioactual = a.vendedores[p][1];
+                new Vista_vendedor().setVisible(true);
+                this.dispose();
+                encontrado = true;
+                break;
+            }
+        }
+    }
+
+    if(!encontrado){
+         tx_error.setText("Usuario o contraseña incorrectos");
+    }
+        
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,12 +181,12 @@ public class Inicio_seccion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImajenCostado_inicio;
     private javax.swing.JLabel ImajenFondo_Inicio;
-    private javax.swing.JToggleButton continuar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel tx_error;
     private javax.swing.JTextField tx_pass;
     private javax.swing.JTextField tx_usuario;
