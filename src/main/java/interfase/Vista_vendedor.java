@@ -11,14 +11,15 @@ package interfase;
 public class Vista_vendedor extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Vista_vendedor.class.getName());
-
+     private funciones a;
     /**
      * Creates new form Vista_vendedor
      */
-    public Vista_vendedor() {
+    public Vista_vendedor(funciones a ) {
+        this.a = new funciones();
         initComponents();
     }
-    funciones a = new funciones();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +50,7 @@ public class Vista_vendedor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         j_contrasena_vendedor = new javax.swing.JLabel();
         b_modificar_vendedor = new javax.swing.JButton();
+        fondo_muestra_datos_vendedor = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -60,6 +62,20 @@ public class Vista_vendedor extends javax.swing.JFrame {
         b_new_objeto = new javax.swing.JButton();
         error_precio = new javax.swing.JLabel();
         fondo_new__venta = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        tx_cedula_editar = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        tx_correo_editar = new javax.swing.JTextField();
+        tx_contraseña_editar = new javax.swing.JTextField();
+        tx_nombre_editar = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        L_error_correo = new javax.swing.JLabel();
+        L_error_correo_editar = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -171,6 +187,9 @@ public class Vista_vendedor extends javax.swing.JFrame {
         });
         jPanel4.add(b_modificar_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 180, 30));
 
+        fondo_muestra_datos_vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo_de_muestra_de_datos_vendedor.jpg"))); // NOI18N
+        jPanel4.add(fondo_muestra_datos_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(-540, 0, 1050, 380));
+
         pestanas_vista_vendedor.addTab("tab1", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,6 +231,53 @@ public class Vista_vendedor extends javax.swing.JFrame {
 
         pestanas_vista_vendedor.addTab("tab3", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tx_cedula_editar.setEditable(false);
+        jPanel3.add(tx_cedula_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 140, -1));
+
+        jLabel12.setText("Nombre");
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+
+        jLabel13.setText("Cedula");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
+
+        jLabel14.setText("Correo");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
+
+        jLabel15.setText("Contraseña");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 20));
+        jPanel3.add(tx_correo_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 140, -1));
+        jPanel3.add(tx_contraseña_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 140, -1));
+        jPanel3.add(tx_nombre_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 140, -1));
+
+        jLabel11.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel11.setText("Si no desea modificar un parametro dejelo en blanco");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, 40));
+
+        jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 120, -1));
+
+        L_error_correo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icono_editar.png"))); // NOI18N
+        jPanel3.add(L_error_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 240, 260));
+        jPanel3.add(L_error_correo_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 70, 20));
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        pestanas_vista_vendedor.addTab("tab4", jPanel3);
+
         jPanel1.add(pestanas_vista_vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 500, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -239,10 +305,10 @@ public class Vista_vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_pa_ventasMouseClicked
 
     private void icono_usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icono_usuarioMouseClicked
-    j_nombre_usuario.setText(""+a.vendedores[a.IDusuarioactual][0]);
+  /*  j_nombre_usuario.setText(""+a.vendedores[a.IDusuarioactual][0]);
     j_cedula_vendedor.setText(""+a.vendedores[a.IDusuarioactual][1]);
     j_email_vendedor.setText(""+a.vendedores[a.IDusuarioactual][2]);
-    j_contrasena_vendedor.setText(""+a.vendedores[a.IDusuarioactual][3]);
+    j_contrasena_vendedor.setText(""+a.vendedores[a.IDusuarioactual][3]);*/
         pestanas_vista_vendedor.setSelectedIndex(0);
     }//GEN-LAST:event_icono_usuarioMouseClicked
 
@@ -276,8 +342,37 @@ public class Vista_vendedor extends javax.swing.JFrame {
     }//GEN-LAST:event_tx_precio_productoKeyTyped
 
     private void b_modificar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_modificar_vendedorActionPerformed
-        // TODO add your handling code here:
+       
+      /*  tx_cedula_editar.setText(""+a.vendedores[a.IDusuarioactual][1]);*/
+        
+        pestanas_vista_vendedor.setSelectedIndex(3);
     }//GEN-LAST:event_b_modificar_vendedorActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       L_error_correo_editar.setText("");
+         String nombre = tx_nombre_editar.getText();
+        String correo = tx_correo_editar.getText();
+        String contraseña = tx_contraseña_editar.getText();
+       /* if (!nombre.isEmpty()){
+            a.vendedores[a.IDusuarioactual][0] = nombre ;
+        } if (correo.isEmpty()){
+            if(a.validarcorreo(nombre)){
+            a.vendedores[a.IDusuarioactual][2] = correo ;
+        }}if (!contraseña.isEmpty()){
+            a.vendedores[a.IDusuarioactual][3] = contraseña ;
+        }
+         if(!a.validarcorreo(nombre)){
+            L_error_correo_editar.setText("Correo no valido");
+        }*/
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        j_nombre_usuario.setText(""+a.usuarios[a.IDusuarioactual].getNombreCompleto());
+    j_cedula_vendedor.setText(""+a.usuarios[a.IDusuarioactual].getCedula());
+    j_email_vendedor.setText(""+a.usuarios[a.IDusuarioactual].getEmail());
+    j_contrasena_vendedor.setText(""+a.usuarios[a.IDusuarioactual].getPassword());
+    pestanas_vista_vendedor.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,22 +394,32 @@ public class Vista_vendedor extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+funciones f2 = new funciones();
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Vista_vendedor().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Vista_vendedor(f2).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel L_error_correo;
+    private javax.swing.JLabel L_error_correo_editar;
     private javax.swing.JButton b_modificar_vendedor;
     private javax.swing.JButton b_new_objeto;
     private javax.swing.JLabel error_precio;
+    private javax.swing.JLabel fondo_muestra_datos_vendedor;
     private javax.swing.JLabel fondo_new__venta;
     private javax.swing.JLabel icono_usuario;
     private javax.swing.JLabel imagen_de_vista_vendedor1;
     private javax.swing.JLabel imagen_de_vista_vendedor2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,6 +430,7 @@ public class Vista_vendedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel j_cedula_vendedor;
@@ -334,7 +440,11 @@ public class Vista_vendedor extends javax.swing.JFrame {
     private javax.swing.JPanel pa_nueva_venta;
     private javax.swing.JPanel pa_ventas;
     private javax.swing.JTabbedPane pestanas_vista_vendedor;
+    private javax.swing.JTextField tx_cedula_editar;
+    private javax.swing.JTextField tx_contraseña_editar;
+    private javax.swing.JTextField tx_correo_editar;
     private javax.swing.JTextField tx_descripcion_producto;
+    private javax.swing.JTextField tx_nombre_editar;
     private javax.swing.JTextField tx_nombre_producto;
     private javax.swing.JTextField tx_precio_producto;
     // End of variables declaration//GEN-END:variables

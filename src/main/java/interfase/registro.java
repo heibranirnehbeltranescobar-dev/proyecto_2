@@ -13,16 +13,17 @@ import java.awt.Color;
 public class registro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(registro.class.getName());
-     
+     private funciones a;
     /**
      * Creates new form registro
      */
-    public registro() {
+    public registro(funciones f1) {
+        this.a = f1;
         initComponents();
         
     }
     
-    funciones a = new funciones();
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,27 +269,19 @@ public class registro extends javax.swing.JFrame {
             if(Rtipo.equalsIgnoreCase("usuario") || Rtipo.equals("1")){
             
                 
-                 a.GuardarUsuario(Rnombre, Rcedula, Remail, Rcontraseña);
-                  new Inicio_seccion().setVisible(true);
+                 a.gusuario(Rnombre, Rcedula, Remail, Rcontraseña,"1");
+                  new Inicio_seccion(a).setVisible(true);
                   this.dispose();
             }
             if(Rtipo.equalsIgnoreCase("vendedor") || Rtipo.equals("2")){
                 
-                a.gvendedor(Rnombre, Rcedula, Remail, Rcontraseña);
-                 new Inicio_seccion().setVisible(true);
+                a.gusuario(Rnombre, Rcedula, Remail, Rcontraseña,"2");
+                 new Inicio_seccion(a).setVisible(true);
                  this.dispose();
                
             }
-             
-     
-           
-     
       }
-     
-        
-        
-        
-        
+           
     }//GEN-LAST:event_b_terminarRActionPerformed
 
     private void b_terminarRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_terminarRMouseEntered
@@ -319,9 +312,9 @@ public class registro extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        funciones aA = new funciones();
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new registro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new registro(aA).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

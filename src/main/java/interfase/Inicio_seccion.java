@@ -13,14 +13,15 @@ import javax.swing.JOptionPane;
 public class Inicio_seccion extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio_seccion.class.getName());
-
+    private funciones a;
     /**
      * Creates new form NewJFrame
      */
-    public Inicio_seccion() {
+    public Inicio_seccion(funciones funcion) {
+        this.a = funcion;
         initComponents();
     }
-    funciones a = new funciones();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,40 +110,54 @@ public class Inicio_seccion extends javax.swing.JFrame {
     }//GEN-LAST:event_tx_passActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      new registro ().setVisible(true);
+      new registro (this.a).setVisible(true);
                     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
  String email = tx_usuario.getText();
-            String contrasena = tx_pass.getText();
+ String contrasena = tx_pass.getText();
 
     if(email.isEmpty() || contrasena.isEmpty()){
         JOptionPane.showMessageDialog(null, "Digite algo en usuario y en contraseña");
-        return;
+        
     }
 
     if(email.equalsIgnoreCase("heibran@gmail.com") && contrasena.equals("123456")){
         new bienvenido().setVisible(true);
         this.dispose();
-        return;
+        
     }
     
     boolean encontrado = false;
     System.out.print("hola");
-    for(int p = 0; p < a.cantvendedor+1; p++){
-        System.out.print("hola");      
+    for(int p = 0; p <= a.cantvendedor; p++){
+          
+        if (a.usuarios[p] != null ) {
+        System.out.print("\n Antes del condicional");  
+        System.out.print("\n" + this.a.usuarios[p].getNombreCompleto());  
+        System.out.print("\n" + this.a.usuarios[p].getCedula());  }
         
-            if(a.vendedores[p][2].equalsIgnoreCase(email) && a.vendedores[p][3].equals(contrasena)){
-                
+       if (a.usuarios[p].getEmail() != null || a.usuarios[p].getPassword() != null ) {
+              System.out.print("Despues del condicional");   
+             if(a.usuarios[p].getEmail().equalsIgnoreCase(email) && a.usuarios[p].getPassword().equals(contrasena)){
+                if(a.usuarios[p].getrol() == "2"){
                 a.IDusuarioactual = p;
-                a.cedulausuarioactual = a.vendedores[p][1];
-                new Vista_vendedor().setVisible(true);
+                a.cedulausuarioactual = a.usuarios[p].getCedula();
+                new Vista_vendedor(a).setVisible(true);
                 this.dispose();
                 encontrado = true;
-                break;
+                break;}  if(a.usuarios[p].getrol() == "1"){
+                a.IDusuarioactual = p;
+                a.cedulausuarioactual = a.usuarios[p].getCedula();
+                new vista_usuario().setVisible(true);
+                this.dispose();
+                encontrado = true;
+                break;}
             
         }
+}
+           
     }
 
     if(!encontrado){
@@ -172,9 +187,9 @@ public class Inicio_seccion extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+funciones f1 = new funciones();
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Inicio_seccion().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Inicio_seccion(f1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

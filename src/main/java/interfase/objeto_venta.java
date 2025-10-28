@@ -13,11 +13,14 @@ public class objeto_venta {
     public String descripcion;
     public int precio;
     public String cedulaVendedor;
-    public objeto_venta(String nombre, String descripcion, int precio,String cedulav) {
+    public int ventas;
+    public objeto_venta(String nombre, String descripcion, int precio,String cedulav,int ventas) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.cedulaVendedor = cedulav;
+        this.ventas = ventas;
+        
     }
     
 }

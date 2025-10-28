@@ -3,6 +3,7 @@ interfase\objeto_venta.class
 interfase\Inicio_seccion.class
 interfase\Inicio_seccion$1.class
 interfase\Vista_vendedor$4.class
+interfase\vista_usuario.class
 interfase\Inicio_seccion$3.class
 interfase\registro$1.class
 interfase\Vista_vendedor.class
@@ -10,10 +11,14 @@ interfase\Vista_vendedor$1.class
 interfase\funciones.class
 com\mycompany\proyecto_de_aula_2\Proyecto_de_aula_2.class
 interfase\registro.class
+interfase\Vista_vendedor$6.class
 interfase\registro$4.class
 interfase\Vista_vendedor$3.class
+interfase\Vista_vendedor$8.class
 interfase\registro$2.class
 interfase\bienvenido.class
+interfase\Usuario.class
+interfase\Vista_vendedor$7.class
 interfase\Inicio_seccion$2.class
 interfase\Inicio_seccion$4.class
 interfase\Vista_vendedor$5.class
